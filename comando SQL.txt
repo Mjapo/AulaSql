@@ -1,0 +1,223 @@
+comando SQL 
+
+select * from categories;
+
+select = seleciona 
+
+* = as colunas da tabela 
+
+
+nome da tabela ; 
+
+
+-------------------------------------------------------------
+
+
+select category_id, picture from categories;
+
+comando para selecionar colunas especificas 
+
+
+
+***************************************************************
+
+criando colunas fixas 
+
+
+select category_id, picture,10 from categories;
+
+adiona uma coluna a mais no conjunto de dados 
+
+
+select category_id, picture, "otimo" from categories;
+
+
+select category_id, picture "familia" from categories;
+
+
+
+criar uma coluna no banco de dados 
+
+----------------------------------------------------------------
+
+
+funcao distinct 
+
+select distinct preco from carros; 
+
+pega os valores distintos de cada linha de consulta 
+ dupla nome e preco 
+
+
+limit de visualizacao dos dados 
+
+select description from categories limit 4;
+
+
+*****************************************************************
+
+
+select nome, qtd , from frutas ORDER BY nome;
+
+select nome, qtd , from frutas ORDER BY quantidade;
+
+
+
+select category_id from categories where category_id = 1;
+
+
+
+-----------------------------------------------------------------
+float tem casas decimais 
+
+select  * from  livros where round(preco,2) = 43.43;
+
+manipulando valores nao inteiros. 
+
+
+
+
+
+
+#FUNCOES DE AGREGACAO 
+
+DEFINICAO 
+REALIZAM CALCULOS 
+PODEM ULITLZAR DE FORMA GERAL SEM FAZER AGRUPAMENTOS 
+EXCELENTES PARA AGRUPAR INFORMACOES 
+RETORNAM UM UNICO RESULTADO 
+PODEM SER USADAS COM DISTINC PARA CONSIDERAR APENAS VALORES UNICOS 
+
+USADOS JUNTO COM GROUP BY 
+
+
+PRINCIPAIS FUNCOES DE AGREGACAO 
+COUNT ( CONTAR )
+RETORNA UM NUMERO DE LINHAS DE UMA TABELA OU PEDIDOS 
+
+MAX ( MAXIMIZAR )
+RETORNA UM VALOR MAXIMO PRESENTE EM UM GRUPO DE VALORES OU EXPRESSAO 
+
+MIN ( MINIZAR )
+RETORNA UM VALOR MINNIMO EM UM GRUPO DE VALORES 
+
+SUM ( SOMAR )
+
+RETORNA A SOMA DE UM GRUPO DE VALORES 
+
+AVG ( MEDIA )
+RETORNA A MEDIA DE UM GRUPO DE VALORES 
+
+
+
+
+***********************************************************
+#operacoes matematicas  
+
+# 7 MODULO 
+
+FUNCOES MATEMATICAS 
+
+PRINCIPAIS FUNCOES 
+
+FUNCAO ABS = CALCULA O VALOR ABSOLUTO 
+
+FUNCAO RAND = RETORNA UM VALOR ALEATORIO ENMTRE 0 E 1 , NAO CONSIDERANDO 1 
+
+FUNCAO SQRT  = CALCULA RAIZ QUADRADA 
+EX : COLUNA DE VARIANCA 
+
+FUNCAO POW = RETORNA A PRIMEIRA ENTRADA ELEVADA A SEGUNDA ENTRADA 
+
+FUNCAO LOG RETORNA UM LOGARITOMO DA PRIMEIRA ENTRADA NA BASE DA SEGUNDA ENTRADA 
+
+FUNCAO ROUND ( ALTERA O NUMERO DAS CASAS DECIMAIS)
+
+FUNCAO MOD  = RETORNA O RESTO DA DIVISAO DE 2 NUMEROS DA PRIMEIRA ENTRADA PELA SEGUNDA ENTRADA 
+
+FUNCAO SIN = RETORNA O SENO DE UM ANGULO (EM RADIANOS)
+
+
+
+*******************************************************************************************************
+
+FUNCOES DE STRING 
+
+STRING = CADEIA DE CARACTERES 
+
+SEQUENCIA DE CARACTERES 
+PRIMEIRO CARACTERE  =POSICAO 1
+EXISTEM MUITAS FUNCOES 
+MUITO UTIL PRA CAMPUS TEXTUAIS 
+
+PRINCIPAIS FUNCOES 
+
+CONCAT  = CONCATENAR OU JUNTAR CARACTERES 
+CONCATENA UMA OU MAIS STRINGS 
+
+STARTS_WITH = COMECA COM 
+VERIFICA SE A STRING COMECA COM A SEGUNDA ENTRADA 
+
+
+LOWER = TRANSFORMA CARACTERES EM MINUSCULO 
+
+UPPER =  TRANSFORMA CARACTERES EM MAIUSCULOS 
+
+SPLIPT = SEPARA A STRING    EM UMA OU MAIS STRINGS BASEANDO SE EM UM DELIMITADOR 
+
+TRIM  = REMOVE OS CARACTERES INICIAIS E FINAIS DA STRING CORRESPONDENTE A SEGUNDA ENTRADA 
+
+REPLACE = SUBSTITUIR PARTE DA STRING POR OUTRO VALOR 
+
+CHAR_LENGTH = RETORNA O COMPRIMENTO DA STRING 
+
+
+
+
+**************************************************************************************
+
+SUB QUERY 
+CONSULTA DENTRO DE CONSULTA  OU SUB CONSULTA OU SUB SELECT  
+
+PARA SITUACOES ONDE UMA SO CONSULTA NAO E CAPAZ DE TRAZER  O RESULTADO DESEJADO OU QUANDO UMA SE TORNA
+COMPLEXA DEMAIS .
+
+3 TIPOS : TABELAS COLUNA ,FILTRO
+
+
+
+TABELA =  
+UMA COLUNA SERA RETORNADA COMO UMA TABELA DA QUAL INFORMACOES SERAO EXTRAIDAS PELA CONSULTA PRINCIPAL 
+
+
+COLUNA =
+UMA COLUNA SERA RETORNADA COMO UMA COLUNA   PARA CONSULTA PRINCIPAL  SEMPRE DEVE HAVER CONEXAO COM A CHAVE DA COLUNA 
+
+FILTRO = 
+UMA CONSULTA SERA USADA COMO FILTRO PARA A CONSULTA PRINCIPAL 
+
+
+WINDOW FUNCTION 
+
+DEFINICAO 
+
+FUNCAO DE JANELA 
+DADO UM INTERVALO DE REGISTROS EFETUA-SE EM UMA OPERACAO 
+E POSSIVEL RETORNAR EM UMA LINHA QUE DESEJA-SE OBTER 
+
+
+FUNCOES DE WINDOW FUNCTION 
+
+FIRST_VALUE   =RETORNA O PRIMEIRO VALOR DA VARIAVEL DESEJADA 
+
+LAST_VALUE = RETORNA O ULTIMO VALOR DA VARIAVEL 
+
+LEAD  = RETORNA O VALOR DA VARIAVEL DESEJADA DE UMA LINHA SUBSEQUENTE CONSIDERANDO A PARTICAO AGRUPADA 
+
+LAG = RETORNA O VALOR DA VARIAVEL DESEJADA  DE UM LINHA ANTERIOR CONSIDERANDO A PARTICAO AGRUPADA OU ORDENADA 
+
+RANK = RETORNA UMA CLASSIFICCAO ORDENADA 
+
+ROW_NUMBER =  RETORNA O NUMERO DE CADA LINHA PARA CADA PARTICAO 
+
+FUNCOES DE AGREGACAO  = MAX , MIN , AVG , COUT, SUM 
