@@ -585,3 +585,95 @@ ORDER BY mes_cadastro ASC;
 
 
 
+#MODULO EXTRA 
+
+#union all 
+select  
+id,
+first_name,
+last_name
+from cursos-401615.ecommerce.customers
+where id between 1 and 5
+
+union all
+select
+id, 
+first_name,
+last_name
+from ecommerce.customers
+where id between 4 and 6
+order by id
+
+
+#union distinct 
+select  
+id,
+first_name,
+last_name
+from cursos-401615.ecommerce.customers
+where id between 1 and 5
+
+union distinct
+select
+id, 
+first_name,
+last_name
+
+
+#usando comando with 
+
+WITH tabela1 AS (
+  SELECT 
+    COUNT(DISTINCT customer_id) AS compradores,
+    DATE(created_at) AS dias 
+  FROM ecommerce.orders
+  GROUP BY 2
+),
+
+tabela2 AS (
+  SELECT
+    COUNT(DISTINCT customer_id) AS compras,
+    DATE(created_at) AS dias
+  FROM ecommerce.orders
+  GROUP BY 2
+)
+
+SELECT 
+  a.compradores,
+  b.compras,
+  a.dias
+FROM tabela1 a
+JOIN tabela2 b ON a.dias = b.dias
+WHERE a.dias BETWEEN "2020-01-01" AND "2020-01-31"
+ORDER BY a.dias ASC;
+
+
+#comando de DDL 
+#create table  comando replace subtistue a tabela atual 
+
+create table ecommerce.teste(
+  id integer ,
+  idade integer,
+  nome string
+);
+
+create or replace table ecommerce.teste(
+  id integer ,
+  idade integer,
+  nome string
+);
+
+#comando drop exclui tabela 
+drop table ecommerce.teste;
+
+
+#create table com consulta para criar tabela 
+create table ecommerce.teste as (
+  select
+  count(distinct id)as pedidos,
+  date(created_at)as dia,
+  from ecommerce.orders
+  group by 2
+  order by 1 asc
+);
+
